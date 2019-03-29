@@ -1,0 +1,67 @@
+<html>
+<head>
+
+<title> WElcome</title>
+
+<script type = "text/javascript">
+
+function register(){
+	
+	var x = new Array(); 
+	x[0]=document.getElementById('name').value;
+	x[1]=document.getElementById('lastname').value;
+	x[2]=document.getElementById('email').value;
+	x[3]=document.getElementById('password').value;
+	x[4]=document.getElementById('cpassword').value;
+	
+	 var h = new Array();
+	 h[0]="<span style='color:red'>Please input your name</span>";
+	 h[1]="<span style='color:red'>Please input your last name</span>";
+	 h[2]="<span style='color:red'>Please enter a valid email</span>";
+	 h[3]="<span style='color:red'>Please enter your password</span>";
+	 h[4]="<span style='color:red'>Please confirm your password</span>";
+	 
+	 var divs = new Array("mname", "mlastname", "memail", "mpassword", "mcpassword");
+	  for (i in x){
+
+		var error = h[i];
+		var div = divs[i];
+			if (x[i]==""){
+			document.getElementById(div).innerHTML=error;
+	  }else{
+			document.getElementById(div).innerHTML="OK!";
+	  }
+	  }
+	  
+	}
+	
+	function pass(){
+		var first = document.getElementById('password').value;
+		var second = document.getElementById('cpassword').value;  
+		
+		if(second==first){
+			document.getElementById('mcpassword').innerHTML="OK!";
+		}
+		else{
+			document.getElementById('mcpassword').innerHTML= "<span style='color:red'>Password don't match</span>"
+		}
+	}
+	
+</script>
+</head>
+<body>
+<form>
+	<table border ="1">
+		<tr><td>Name:</td><td><input type="text" name ="name" id="name" onkeyUp="register()"/></td><td><div id = "mname" ></div></td></tr>
+		<tr><td>Last Name:</td><td><input type="text" name ="lastname" id="lastname" onkeyUp="register()"/></td><td><div id = "mlastname"></div></td></tr>
+		<tr><td>E-mail:</td><td><input type="text" name ="email" id="email" onkeyUp="register()"/></td><td><div id = "memail"></td></div></tr>
+		<tr><td>Password:</td><td><input type="password" name ="password" id="password" onkeyUp="register()"/></td><td><div id = "mpassword"></td></div></tr>
+		<tr><td>Confirm Password:</td><td><input type="password" name ="cpassword" id="cpassword" onkeyUp="pass()"/></td><td><div id = "mcpassword"></td></div></tr>
+	</table>
+	<br />
+		<input type="button" name ="submit" value="submit" /> 
+</form>
+
+</body>
+
+</html>
